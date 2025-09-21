@@ -25,5 +25,7 @@ android {
 
 dependencies {
     implementation project(':FtcRobotController')
-    implementation files('lib/rframeworks-1.0.1.jar')
+    implementation files('../libs/rframeworks-1.0.4.jar')
+
+    annotationProcessor project(':rframeworks-processor')
 }
