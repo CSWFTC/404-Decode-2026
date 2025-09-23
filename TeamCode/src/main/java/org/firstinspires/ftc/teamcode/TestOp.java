@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
@@ -12,6 +13,8 @@ import com.rframeworks.di.generated.GeneratedRegistry;
 import org.firstinspires.ftc.teamcode.mocks.MockOp;
 import org.firstinspires.ftc.teamcode.mocks.MockRegistry;
 import org.firstinspires.ftc.teamcode.mocks.OpModeMock;
+
+import com.qualcomm.robotcore.hardware.HardwareMap;
 
 @MockOp(name = "Test OpMode", group = "OpModes")
 @Disabled
