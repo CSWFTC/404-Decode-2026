@@ -2,6 +2,8 @@ package com.rframeworks.processor;
 
 import com.google.auto.service.AutoService;
 import com.rframeworks.di.Injectable;
+import com.rframeworks.di.Prototype;
+import com.rframeworks.di.Singleton;
 import com.squareup.javapoet.*;
 
 import javax.annotation.processing.*;
@@ -58,6 +60,7 @@ public class RFrameworksProcessor extends AbstractProcessor {
                 .returns(void.class);
 
         ClassName supplier = ClassName.get("java.util.function", "Supplier");
+        ClassName scopeClass = ClassName.get("com.rframeworks.di", "Container.Scope");
 
         for (TypeElement clazz : injectableClasses) {
             Injectable ann = clazz.getAnnotation(Injectable.class);
@@ -66,15 +69,25 @@ public class RFrameworksProcessor extends AbstractProcessor {
             String key = ann.value();
             ClassName clazzName = ClassName.get(clazz);
 
-            messager.printMessage(Diagnostic.Kind.NOTE,
-                    "Registering @" + key + " -> " + clazzName);
+            // Determine scope
+            boolean isSingleton = clazz.getAnnotation(Singleton.class) != null;
+            boolean isPrototype = clazz.getAnnotation(Prototype.class) != null;
+            String scope = "SINGLETON";
+            if (isPrototype) scope = "PROTOTYPE";
 
-            methodBuilder.addStatement("$T.register($S, ($T<$T>) $T::new)",
+            messager.printMessage(Diagnostic.Kind.NOTE,
+                    "Registering @" + key + " -> " + clazzName + " [" + scope + "]");
+
+            methodBuilder.addStatement(
+                    "$T.register($S, ($T<$T>) $T::new, $T.$L)",
                     ClassName.get("com.rframeworks.di", "Container"),
                     key,
                     supplier,
                     ClassName.get(Object.class),
-                    clazzName);
+                    clazzName,
+                    scopeClass,
+                    scope
+            );
         }
 
         TypeSpec registryClass = TypeSpec.classBuilder("GeneratedRegistry")
