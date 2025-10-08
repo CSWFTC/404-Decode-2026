@@ -6,6 +6,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import com.qualcomm.robotcore.hardware.Servo;
+import com.rframeworks.di.Inject;
 import com.rframeworks.di.Injector;
 import com.rframeworks.di.Resolved;
 import com.rframeworks.eventbus.*;
@@ -27,11 +28,8 @@ public class TestOp extends OpModeMock {
 //    Servo
 
 //    Resolved
+//    Class1 c1;
 
-    public TestOp() {
-       super();
-       Injector.injectInto(this);
-    }
     public static void Register() {
         MockRegistry.register(TestOp.class);
     }
@@ -40,6 +38,11 @@ public class TestOp extends OpModeMock {
     public void init() {
         GeneratedRegistry.registerAll();
         System.out.println("Init!");
+
+        Class1 c1 = new Class1();
+        c1.printSomethingFromTest();
+
+//        this.test.printSomething();
     }
 
     @Override
