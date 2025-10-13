@@ -27,22 +27,21 @@ public class TestOp extends OpModeMock {
     EventBus<String> eb = EventBus.getInstance();
 //    Servo
 
-//    Resolved
-//    Class1 c1;
-
     public static void Register() {
         MockRegistry.register(TestOp.class);
     }
 
+    @Inject("InjectTest")
+    InjectTest ij;
+
     @Override
     public void init() {
+        System.out.println("Init");
+
         GeneratedRegistry.registerAll();
-        System.out.println("Init!");
+        Injector.injectInto(this);
 
-        Class1 c1 = new Class1();
-        c1.printSomethingFromTest();
-
-//        this.test.printSomething();
+        ij.printSomething();
     }
 
     @Override

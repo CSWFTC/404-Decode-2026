@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode;
 
 import com.rframeworks.di.Inject;
 import com.rframeworks.di.Injectable;
+import com.rframeworks.di.Prototype;
 import com.rframeworks.di.Singleton;
 
 @Injectable("InjectTest")
