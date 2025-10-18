@@ -14,6 +14,7 @@ import com.rframeworks.di.Injectable;
 
 import com.rframeworks.di.generated.GeneratedRegistry;
 
+import org.firstinspires.ftc.teamcode.configurators.AprilTagConfig;
 import org.firstinspires.ftc.teamcode.mocks.MockOp;
 import org.firstinspires.ftc.teamcode.mocks.MockRegistry;
 import org.firstinspires.ftc.teamcode.mocks.OpModeMock;
@@ -25,14 +26,13 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 @Disabled
 public class TestOp extends OpModeMock {
     EventBus<String> eb = EventBus.getInstance();
-//    Servo
 
     public static void Register() {
         MockRegistry.register(TestOp.class);
     }
 
-    @Inject("InjectTest")
-    InjectTest ij;
+    @Inject("AprilTagConfig")
+    AprilTagConfig aprilTagConfig;
 
     @Override
     public void init() {
@@ -41,7 +41,8 @@ public class TestOp extends OpModeMock {
         GeneratedRegistry.registerAll();
         Injector.injectInto(this);
 
-        ij.printSomething();
+        EventBus.getInstance().createTopic("DDAprilTagData");
+        aprilTagConfig.registerConfig();
     }
 
     @Override
@@ -52,6 +53,7 @@ public class TestOp extends OpModeMock {
     @Override
     public void start() {
         System.out.println("Started!");
+        EventBus.getInstance().publish("DDAprilTagData", "123ABC");
         this.pressStop();
     }
 
@@ -61,6 +63,7 @@ public class TestOp extends OpModeMock {
 
     @Override
     public void stop() {
+        System.out.println("AT Code from config: "+aprilTagConfig.getAprilTagCode());
         System.out.println("Stopped");
     }
 }
