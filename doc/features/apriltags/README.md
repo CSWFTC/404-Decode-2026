@@ -10,3 +10,11 @@
 |-----------------:|--------------------------------------------------:|
 | AprilTags Component| Scans the QR code and publishes to the event bugs |                         
 
+## AprilTags Payload Specs
+
+```json
+{
+  "topic": "AprilTags",
+  "data": {}
+}
+```
