@@ -5,10 +5,6 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-import com.qualcomm.robotcore.hardware.Servo;
-import com.rframeworks.di.Inject;
-import com.rframeworks.di.Injector;
-import com.rframeworks.di.Resolved;
 import com.rframeworks.eventbus.*;
 import com.rframeworks.di.Injectable;
 
@@ -18,7 +14,6 @@ import org.firstinspires.ftc.teamcode.configurators.AprilTagConfig;
 import org.firstinspires.ftc.teamcode.mocks.MockOp;
 import org.firstinspires.ftc.teamcode.mocks.MockRegistry;
 import org.firstinspires.ftc.teamcode.mocks.OpModeMock;
-import org.firstinspires.ftc.teamcode.mocks.Servo.ServoMock;
 
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
@@ -36,8 +31,6 @@ public class TestOp extends OpModeMock {
 
     @Override
     public void init() {
-        System.out.println("Init");
-
         GeneratedRegistry.registerAll();
         Injector.injectInto(this);
 
