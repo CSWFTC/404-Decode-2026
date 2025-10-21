@@ -5,10 +5,6 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-import com.qualcomm.robotcore.hardware.Servo;
-import com.rframeworks.di.Inject;
-import com.rframeworks.di.Injector;
-import com.rframeworks.di.Resolved;
 import com.rframeworks.eventbus.*;
 import com.rframeworks.di.Injectable;
 
@@ -17,7 +13,6 @@ import com.rframeworks.di.generated.GeneratedRegistry;
 import org.firstinspires.ftc.teamcode.mocks.MockOp;
 import org.firstinspires.ftc.teamcode.mocks.MockRegistry;
 import org.firstinspires.ftc.teamcode.mocks.OpModeMock;
-import org.firstinspires.ftc.teamcode.mocks.Servo.ServoMock;
 
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
@@ -25,23 +20,15 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 @Disabled
 public class TestOp extends OpModeMock {
     EventBus<String> eb = EventBus.getInstance();
-//    Servo
 
     public static void Register() {
         MockRegistry.register(TestOp.class);
     }
 
-    @Inject("InjectTest")
-    InjectTest ij;
-
     @Override
     public void init() {
-        System.out.println("Init");
-
         GeneratedRegistry.registerAll();
-        Injector.injectInto(this);
-
-        ij.printSomething();
+        System.out.println("Init!");
     }
 
     @Override
