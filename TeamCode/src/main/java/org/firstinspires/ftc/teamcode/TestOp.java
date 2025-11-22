@@ -5,8 +5,6 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-import com.rframeworks.di.Inject;
-import com.rframeworks.di.Injector;
 import com.rframeworks.eventbus.*;
 import com.rframeworks.di.Injectable;
 
@@ -35,8 +33,6 @@ public class TestOp extends OpModeMock {
     public void init() {
         GeneratedRegistry.registerAll();
 
-//        GeneratedRegistry.registerAll();
-//         Injector.injectInto(this);
 
         EventBus.getInstance().createTopic("DDAprilTagData");
         aprilTagConfig.registerConfig();
