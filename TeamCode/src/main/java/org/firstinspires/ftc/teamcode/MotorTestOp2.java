@@ -49,8 +49,8 @@ public class MotorTestOp2 extends LinearOpMode {
         waitForStart();
         telemetry.clear();
 
-        intakeMotor.setPower(1.0);
-        outtakeMotor.setPower(1.0);
+        intakeMotor.setPower(0.65);
+        outtakeMotor.setPower(0.65);
 
         while (opModeIsActive()) {
             telemetry.addData("Intake Motor", PARAMS.intakeMotorName);
@@ -63,6 +63,8 @@ public class MotorTestOp2 extends LinearOpMode {
 
             telemetry.update();
         }
+
+        //
 
         intakeMotor.setPower(0);
         outtakeMotor.setPower(0);

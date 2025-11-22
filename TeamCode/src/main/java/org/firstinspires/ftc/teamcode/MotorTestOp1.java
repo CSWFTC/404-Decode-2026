@@ -63,7 +63,7 @@ public class MotorTestOp1 extends LinearOpMode {
              } else if (gamepad1.yWasPressed()) {
                  power = 0.25;
              } else if (gamepad1.dpadDownWasPressed()) {
-                 power = 0.0;
+                 power = 0;
              }
 
              motorLeft1.setPower(gamepad1.left_stick_y*power);
