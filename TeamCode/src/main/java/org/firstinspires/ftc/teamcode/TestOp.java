@@ -28,13 +28,15 @@ public class TestOp extends OpModeMock {
         MockRegistry.register(TestOp.class);
     }
 
-    @Inject("AprilTagConfig")
+
     AprilTagConfig aprilTagConfig;
 
     @Override
     public void init() {
+        GeneratedRegistry.registerAll();
+
 //        GeneratedRegistry.registerAll();
-        Injector.injectInto(this);
+//         Injector.injectInto(this);
 
         EventBus.getInstance().createTopic("DDAprilTagData");
         aprilTagConfig.registerConfig();
