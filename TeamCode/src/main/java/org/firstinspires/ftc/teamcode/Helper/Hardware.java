@@ -24,15 +24,7 @@ public class Hardware {
 
     public static WebcamName camera;
 
-    public static class Params {
-
-        public double shootingspeed = 0.00;
-    }
-
-    public static double targetShooterPosition = 0.00;
-
-    public static Params PARAMS = new Params();
-    private final Servo shooter;
+    public static Servo shooterServo;
 
     public static void init(HardwareMap map) {
         frontLeft  = map.get(DcMotor.class, "frontLeft");
@@ -50,43 +42,10 @@ public class Hardware {
     }
 
     public Hardware(@NonNull HardwareMap map){
-        shooter = hardwareMap.servo.get("shooterServo");
-        shooter.setDirection(Servo.Direction.FORWARD);
+        shooterServo = hardwareMap.servo.get("shooterServo");
+        shooterServo.setDirection(Servo.Direction.FORWARD);
     }
 
-    //motor speeds
-    public void setShooterSpeed(double speed){
-        outtakeMotor.setPower(speed);
-        PARAMS.shootingspeed = speed;
-    }
-
-    public void increaseShooterSpeed (){
-        PARAMS.shootingspeed += 0.01;
-        setShooterSpeed(PARAMS.shootingspeed);
-    }
-
-    public void decreaseShooterSpeed (){
-        PARAMS.shootingspeed -= 0.01;
-        setShooterSpeed(PARAMS.shootingspeed);
-    }
-
-    //shooting angle
-    public void setAnglePosition(double newPos){
-        shooter.setPosition(newPos);
-        targetShooterPosition = newPos;
-
-    }
-
-    public void increaseAnglePosition(){
-        targetShooterPosition += 0.01;
-        setAnglePosition(targetShooterPosition);
-
-    }
-
-    public void decreaseAnglePosition(){
-        targetShooterPosition -= 0.01;
-        setAnglePosition(targetShooterPosition);
-    }
 
 
 }
