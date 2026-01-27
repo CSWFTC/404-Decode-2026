@@ -7,6 +7,7 @@ import static org.firstinspires.ftc.teamcode.pedroPathing.Tuning.follower;
 import static org.firstinspires.ftc.teamcode.pedroPathing.Tuning.stopRobot;
 import static org.firstinspires.ftc.teamcode.pedroPathing.Tuning.telemetryM;
 
+
 import com.bylazar.configurables.PanelsConfigurables;
 import com.bylazar.configurables.annotations.Configurable;
 import com.bylazar.configurables.annotations.IgnoreConfigurable;
@@ -39,6 +40,7 @@ import java.util.List;
 public class Tuning extends SelectableOpMode {
     public static Follower follower;
 
+    //tuning
     @IgnoreConfigurable
     static PoseHistory poseHistory;
 
