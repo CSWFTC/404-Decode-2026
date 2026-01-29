@@ -1,9 +1,11 @@
 package org.firstinspires.ftc.teamcode.Helper;
 import static org.firstinspires.ftc.teamcode.Helper.Hardware.outtakeMotor;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.HardwareMap;
+
 import static org.firstinspires.ftc.teamcode.Helper.Hardware.shooterServo;
 
-
+import androidx.annotation.NonNull;
 
 
 public class Shoot {
@@ -15,12 +17,14 @@ public class Shoot {
         public double shootingspeed = 0.00;
     }
 
-    public static double targetShooterPosition = 0.00;
 
-    public static Params PARAMS = new Params();
-    public Shoot(DcMotor leftMotor, DcMotor rightMotor) {
-        this.leftMotor = leftMotor;
-        this.rightMotor = rightMotor;
+    public static double targetShooterPosition = 0.00;
+    public static Shoot.Params PARAMS = new Shoot.Params();
+    public Shoot(@NonNull HardwareMap hdwMap) {
+
+        leftMotor = hdwMap.dcMotor.get("leftMotor");
+        rightMotor = hdwMap.dcMotor.get("rightMotor");
+
 
         this.leftMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         this.rightMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
@@ -46,17 +50,17 @@ public class Shoot {
 
     public void setShooterSpeed(double speed){
         outtakeMotor.setPower(speed);
-        PARAMS.shootingspeed = speed;
+        Shoot.PARAMS.shootingspeed = speed;
     }
 
     public void increaseShooterSpeed (){
-        PARAMS.shootingspeed += 0.01;
+        Shoot.PARAMS.shootingspeed += 0.01;
         setShooterSpeed(PARAMS.shootingspeed);
     }
 
     public void decreaseShooterSpeed (){
-        PARAMS.shootingspeed -= 0.01;
-        setShooterSpeed(PARAMS.shootingspeed);
+        Shoot.PARAMS.shootingspeed -= 0.01;
+        setShooterSpeed(Shoot.PARAMS.shootingspeed);
     }
 
     //shooting angle
@@ -67,13 +71,13 @@ public class Shoot {
     }
 
     public void increaseAnglePosition(){
-        targetShooterPosition += 0.01;
+        targetShooterPosition += 0.05;
         setAnglePosition(targetShooterPosition);
 
     }
 
     public void decreaseAnglePosition(){
-        targetShooterPosition -= 0.01;
+        targetShooterPosition -= 0.05;
         setAnglePosition(targetShooterPosition);
     }
 

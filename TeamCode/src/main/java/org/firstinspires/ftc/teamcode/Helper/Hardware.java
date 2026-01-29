@@ -27,24 +27,33 @@ public class Hardware {
     public static Servo shooterServo;
 
     public static void init(HardwareMap map) {
+
+        //wheels
         frontLeft  = map.get(DcMotor.class, "frontLeft");
         frontRight = map.get(DcMotor.class, "frontRight");
         backLeft   = map.get(DcMotor.class, "rearLeft");
         backRight  = map.get(DcMotor.class, "rearRight");
 
+
+        //intake and outake system
         intakeMotor  = map.get(DcMotor.class, "intakeMotor");
         outtakeMotor = map.get(DcMotor.class, "outtakeMotor");
 
-        outtakeMotor.setDirection(DcMotor.Direction.REVERSE);
+        //servo
+        shooterServo = map.get(Servo.class, "shooterServo");
 
         frontLeft.setDirection(DcMotor.Direction.REVERSE);
         frontRight.setDirection(DcMotor.Direction.REVERSE);
-    }
 
-    public Hardware(@NonNull HardwareMap map){
-        shooterServo = hardwareMap.servo.get("shooterServo");
+        outtakeMotor.setDirection(DcMotor.Direction.REVERSE);
+
         shooterServo.setDirection(Servo.Direction.FORWARD);
     }
+
+ /*   public Hardware(@NonNull HardwareMap map){
+        shooterServo = hardwareMap.servo.get("shooterServo");
+        shooterServo.setDirection(Servo.Direction.FORWARD);
+    }*/
 
 
 
