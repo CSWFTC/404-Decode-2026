@@ -25,6 +25,8 @@ public class Hardware {
         intakeMotor  = map.get(DcMotor.class, "intakeMotor");
         outtakeMotor = map.get(DcMotor.class, "outtakeMotor");
 
+        frontLeft.setDirection(DcMotor.Direction.REVERSE);
+        frontRight.setDirection(DcMotor.Direction.REVERSE);
 
     }
 }
