@@ -70,16 +70,16 @@ public class DriverControlWithVision extends LinearOpMode {
             if (rbPressed) {
                 intakeSpeed += 0.1;
                 if (intakeSpeed > 1.0) intakeSpeed = 1.0;
-                if (shooter.getLeftPower() > 0) {
-                    shooter.setPower(intakeSpeed, shooter.getRightPower());
+                if (shooter.getIntakePower() > 0) {
+                    shooter.setPower(intakeSpeed, shooter.getOuttakePower());
                 }
             }
 
             if (lbPressed) {
                 intakeSpeed -= 0.1;
                 if (intakeSpeed < 0.2) intakeSpeed = 0.2;
-                if (shooter.getLeftPower() > 0) {
-                    shooter.setPower(intakeSpeed, shooter.getRightPower());
+                if (shooter.getIntakePower() > 0) {
+                    shooter.setPower(intakeSpeed, shooter.getOuttakePower());
                 }
             }
 
@@ -90,16 +90,16 @@ public class DriverControlWithVision extends LinearOpMode {
             boolean bPressed = gamepad2.b && !lastB;
 
             if (aPressed) {
-                boolean running = shooter.getLeftPower() > 0;
-                shooter.setPower(running ? 0 : intakeSpeed, shooter.getRightPower());
+                boolean running = shooter.getIntakePower() > 0;
+                shooter.setPower(running ? 0 : intakeSpeed, shooter.getOuttakePower());
             }
             lastA = gamepad2.a;
             lastB = gamepad2.b;
 
 
             if (bPressed) {
-                double outtakePower = shooter.getRightPower() > 0 ? 0 : 0.6;
-                shooter.setPower(shooter.getLeftPower(), outtakePower);
+                double outtakePower = shooter.getOuttakePower() > 0 ? 0 : 0.6;
+                shooter.setPower(shooter.getIntakePower(), outtakePower);
             }
 
 

@@ -13,7 +13,7 @@ public class MotorTestOp extends LinearOpMode {
     public static final String version = "1.5";
 
     public static class Params {
-        public String motorName = "bigmotor";
+        public String motorName ="bigmotor";
         public boolean motorForward = true; // forward
     }
 
@@ -26,6 +26,7 @@ public class MotorTestOp extends LinearOpMode {
         telemetry.addData("Version", version);
         telemetry.addLine();
         telemetry.addData(">", "Press Start to Launch");
+        telemetry.update();
         telemetry.update();
 
         DcMotor motor = hardwareMap.dcMotor.get(PARAMS.motorName);
@@ -47,5 +48,6 @@ public class MotorTestOp extends LinearOpMode {
         }
 
         motor.setPower(0);
+
     }
 }

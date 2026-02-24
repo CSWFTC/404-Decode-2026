@@ -6,14 +6,13 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.teamcode.Helper.DriveTrain;
 import org.firstinspires.ftc.teamcode.Helper.GamePad;
 import org.firstinspires.ftc.teamcode.Helper.Hardware;
-import org.firstinspires.ftc.teamcode.Helper.Shoot;
+
 
 
     @TeleOp(name = "TankDriver ", group = "Competition")
     public class TankDriver extends LinearOpMode {
 
         private DriveTrain drive;
-        private Shoot shooter;
         private GamePad gp1, gp2;
         private boolean reversed = false;
         private double speedMultiplier = 0.5;
