@@ -16,6 +16,8 @@ public class TankDriveTrainTest2 extends LinearOpMode {
 
     private DcMotor leftFront, leftBack, rightFront, rightBack;
     private GamePad gpInput;
+    private GamePad gpIn1;
+    private GamePad gpIn2;
 
     public static class Params {
         public String motorName = "bigmotor";
@@ -37,6 +39,9 @@ public class TankDriveTrainTest2 extends LinearOpMode {
         leftBack = hardwareMap.dcMotor.get("backLeft");
         rightFront = hardwareMap.dcMotor.get("frontRight");
         rightBack = hardwareMap.dcMotor.get("backRight");
+
+        gpIn1 = new GamePad(gamepad1);
+        gpIn2 = new GamePad(gamepad2);
 //Note: All inputs associated with intakeMotor & shootMotor must be from to gamepad2 during competition.
 
         rightFront.setDirection(DcMotorSimple.Direction.REVERSE);

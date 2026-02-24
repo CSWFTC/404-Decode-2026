@@ -39,6 +39,9 @@ public class TankDriveTrainTest extends OpMode {
             case BUTTON_A:
                 power = 1.0;
                 break;
+            case BUTTON_B:
+                power = 0.5;
+                break;
             case JOYSTICK:
                 double leftPower = -gamepad1.left_stick_y;
                 double rightPower = -gamepad1.right_stick_y;
