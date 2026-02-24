@@ -24,7 +24,10 @@ public class Hardware {
 
     public static WebcamName camera;
 
-    public static Servo shooterServo;
+    public static DcMotor spinnerMotor;
+    public static DcMotor turretMotor;
+    public static Servo pushServo;
+
 
     public static void init(HardwareMap map) {
 
@@ -35,25 +38,31 @@ public class Hardware {
         backRight  = map.get(DcMotor.class, "rearRight");
 
 
+
         //intake and outake system
         intakeMotor  = map.get(DcMotor.class, "intakeMotor");
         outtakeMotor = map.get(DcMotor.class, "outtakeMotor");
 
-        //servo
-        shooterServo = map.get(Servo.class, "shooterServo");
+        spinnerMotor = map.get(DcMotor.class,"spinnerMotor");
+        turretMotor = map.get(DcMotor.class, "turretMotor");
 
-        frontLeft.setDirection(DcMotor.Direction.REVERSE);
-        frontRight.setDirection(DcMotor.Direction.REVERSE);
 
-        outtakeMotor.setDirection(DcMotor.Direction.REVERSE);
+        pushServo = map.get(Servo.class,"pushServo");
 
-        shooterServo.setDirection(Servo.Direction.FORWARD);
+        frontLeft.setDirection(DcMotor.Direction.FORWARD);
+        frontRight.setDirection(DcMotor.Direction.FORWARD);
+        backLeft.setDirection(DcMotor.Direction.REVERSE);
+        backRight.setDirection(DcMotor.Direction.REVERSE);
+
+
+        intakeMotor.setDirection(DcMotorSimple.Direction.REVERSE);
+        spinnerMotor.setDirection(DcMotorSimple.Direction.REVERSE);
+        turretMotor.setDirection(DcMotorSimple.Direction.REVERSE);
+        outtakeMotor.setDirection(DcMotorSimple.Direction.REVERSE);
+
+        pushServo.setDirection(Servo.Direction.REVERSE);
     }
 
- /*   public Hardware(@NonNull HardwareMap map){
-        shooterServo = hardwareMap.servo.get("shooterServo");
-        shooterServo.setDirection(Servo.Direction.FORWARD);
-    }*/
 
 
 
