@@ -13,6 +13,7 @@ public class Hardware {
 
     public static DcMotor intakeMotor;
     public static DcMotor outtakeMotor;
+    public static DcMotor turretMotor;
 
     public static WebcamName camera;
 
@@ -24,6 +25,7 @@ public class Hardware {
 
         intakeMotor  = map.get(DcMotor.class, "intakeMotor");
         outtakeMotor = map.get(DcMotor.class, "outtakeMotor");
+        turretMotor = map.get(DcMotor.class, "turretMotor");
 
         frontLeft.setDirection(DcMotor.Direction.REVERSE);
         frontRight.setDirection(DcMotor.Direction.REVERSE);
