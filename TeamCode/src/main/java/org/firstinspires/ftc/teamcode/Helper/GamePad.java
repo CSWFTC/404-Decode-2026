@@ -1,7 +1,7 @@
 package org.firstinspires.ftc.teamcode.Helper;
 
 /* Copyright (c) 2023 FIRST Tech Challenge - Team #404 “=ma” (https://...)
- *
+ *\
  * Permission is granted, free of charge, to any person obtaining a copy of this software and
  * associated documentation (collectively, the "Software") to use the Software without restriction,
  * including without limitation, the rights to use, copy, modify, merge, publish, distribute,
@@ -50,7 +50,6 @@ ElbowHangPos = .52
 GrappleHangPos = .455
 Push Update
  */
-
 public class GamePad{
 
     public static class  Params {
@@ -66,7 +65,6 @@ public class GamePad{
     Accessible HapticsController inside of GamePad class
     Based on GamepadHaptics class
      */
-    public GamePadHaptics1 HapticsController;
 
     public static Params PARAMS = new Params();
 
@@ -151,12 +149,6 @@ public class GamePad{
         this.inputGPad = gp;
     }
 
-    public GamePad(@NonNull Gamepad gp, boolean enableHaptics) {
-        this.inputGPad = gp;
-        if (enableHaptics) {
-            this.HapticsController = new GamePadHaptics1(this.inputGPad);
-        }
-    }
 
     // Telemetry Data Getters
     public int getTelemetry_WaitLoopCount() {

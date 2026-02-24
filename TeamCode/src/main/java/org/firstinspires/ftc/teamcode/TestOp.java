@@ -5,6 +5,8 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
+import com.rframeworks.di.Inject;
+import com.rframeworks.di.Injector;
 import com.rframeworks.eventbus.*;
 import com.rframeworks.di.Injectable;
 
@@ -26,13 +28,15 @@ public class TestOp extends OpModeMock {
         MockRegistry.register(TestOp.class);
     }
 
-    @Inject("AprilTagConfig")
+
     AprilTagConfig aprilTagConfig;
 
     @Override
     public void init() {
         GeneratedRegistry.registerAll();
-        Injector.injectInto(this);
+
+//        GeneratedRegistry.registerAll();
+//         Injector.injectInto(this);
 
         EventBus.getInstance().createTopic("DDAprilTagData");
         aprilTagConfig.registerConfig();
