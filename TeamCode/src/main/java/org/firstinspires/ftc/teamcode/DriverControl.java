@@ -6,7 +6,6 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.Helper.DriveTrain;
-import org.firstinspires.ftc.teamcode.Helper.GamePad;
 import org.firstinspires.ftc.teamcode.Helper.Hardware;
 import org.firstinspires.ftc.teamcode.Helper.Spindexer;
 import org.firstinspires.ftc.teamcode.Helper.Shooter;
@@ -52,7 +51,6 @@ public class DriverControl extends LinearOpMode {
         turret = new Turret(Hardware.turretMotor);
 
 
-        // edge detection
         boolean lastBack = false;
         boolean lastA = false;
         boolean lastB = false;
@@ -61,15 +59,12 @@ public class DriverControl extends LinearOpMode {
         push.moveDown();
 
         waitForStart();
-        telemetry.clear();
 
         while (opModeIsActive()) {
 
             //GAMEPAD 1
             boolean backPressed = gamepad1.back && !lastBack;
-            if (backPressed) {
-                reversed = !reversed;
-            }
+            if (backPressed) reversed = !reversed;
             lastBack = gamepad1.back;
 
             if (gamepad1.dpad_down)  speedMultiplier = 0.25;
@@ -130,7 +125,6 @@ public class DriverControl extends LinearOpMode {
                 push.comboMove();
             }
 
-            //turret
             turret.update(
                     gamepad2.right_stick_x,
                     gamepad2.left_bumper,

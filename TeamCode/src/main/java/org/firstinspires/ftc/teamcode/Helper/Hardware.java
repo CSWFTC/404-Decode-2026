@@ -21,6 +21,7 @@ public class Hardware {
 
     public static DcMotor intakeMotor;
     public static DcMotor outtakeMotor;
+    public static DcMotor turretMotor;
 
     public static WebcamName camera;
 
@@ -42,6 +43,7 @@ public class Hardware {
         //intake and outake system
         intakeMotor  = map.get(DcMotor.class, "intakeMotor");
         outtakeMotor = map.get(DcMotor.class, "outtakeMotor");
+        turretMotor = map.get(DcMotor.class, "turretMotor");
 
         spinnerMotor = map.get(DcMotor.class,"spinnerMotor");
         turretMotor = map.get(DcMotor.class, "turretMotor");
