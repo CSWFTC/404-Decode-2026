@@ -17,15 +17,19 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 @Autonomous(name = "MockAuton")
 public class MockAuton extends LinearOpMode {
 
-    DcMotor leftMotor;
-    DcMotor rightMotor;
+    DcMotor topLeftMotor;
+    DcMotor topRightMotor;
+    DcMotor bottomLeftMotor;
+    DcMotor bottomRightMotor;
 
     @Override
 
     public void runOpMode() {
 
-        leftMotor = hardwareMap.get(DcMotor.class, "leftMotor");
-        rightMotor = hardwareMap.get(DcMotor.class, "rightMotor");
+        topLeftMotor = hardwareMap.get(DcMotor.class, "topLeftMotor");
+        topRightMotor = hardwareMap.get(DcMotor.class, "topRightMotor");
+        bottomLeftMotor = hardwareMap.get(DcMotor.class, "bottomLeftMotor");
+        bottomRightMotor = hardwareMap.get(DcMotor.class, "bottomRightMotor");
 
 
 
@@ -49,21 +53,27 @@ public class MockAuton extends LinearOpMode {
         }
     }
     public void moveForward(double power, long time) {
-        leftMotor.setPower(power);
-        rightMotor.setPower(power);
+        topLeftMotor.setPower(power);
+        topRightMotor.setPower(power);
+        bottomLeftMotor.setPower(power);
+        bottomRightMotor.setPower(power);
         sleep(time);
         stopMotors();
     }
 
     public void stopMotors() {
-        leftMotor.setPower(0.0);
-        rightMotor.setPower(0.0);
+        topLeftMotor.setPower(0.0);
+        topRightMotor.setPower(0.0);
+        bottomLeftMotor.setPower(0.0);
+        bottomRightMotor.setPower(0.0);
     }
 
     //For turning, a positive number = right turn
     public void turn(double power, long time) {
-        leftMotor.setPower(power);
-        rightMotor.setPower(-power);
+        topLeftMotor.setPower(power);
+        topRightMotor.setPower(power);
+        bottomLeftMotor.setPower(-power);
+        bottomRightMotor.setPower(-power);
         sleep(time);
         stopMotors();
     }
