@@ -1,12 +1,8 @@
 package org.firstinspires.ftc.teamcode.Helper;
-
-import com.acmerobotics.dashboard.FtcDashboard;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.acmerobotics.dashboard.config.Config;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import android.os.SystemClock;
-import com.acmerobotics.dashboard.telemetry.TelemetryPacket;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.teamcode.Helper.Hardware;
 
