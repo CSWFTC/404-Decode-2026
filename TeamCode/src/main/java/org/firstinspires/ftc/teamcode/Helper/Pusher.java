@@ -7,20 +7,14 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import android.os.SystemClock;
 public class Pusher {
 /*Notes
-* the start position (0) is too high
-* the flap at the bottom is hitting the right side of the print
-*
-*
-*
-*
 *
 *  */
 
     public static class Params{
 
-        public double maxPos = 0.06;
+        public double maxPos = 0.09;
         public double minPos = 0.00;
-        public int comboTime = 200;
+        public int comboTime = 100;
     }
     public static Pusher.Params PARAMS = new Pusher.Params();
 

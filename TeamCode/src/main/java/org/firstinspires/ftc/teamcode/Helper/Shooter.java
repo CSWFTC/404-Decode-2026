@@ -14,7 +14,7 @@ public class Shooter {
 
     public static class Params{
 
-        public double pow = 0.9;
+        public double pow = 1;
 
 
     }
