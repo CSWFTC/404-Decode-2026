@@ -17,19 +17,19 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 @Autonomous(name = "MockAuton")
 public class MockAuton extends LinearOpMode {
 
-    DcMotor topLeftMotor;
-    DcMotor topRightMotor;
-    DcMotor bottomLeftMotor;
-    DcMotor bottomRightMotor;
+    DcMotor frontLeft;
+    DcMotor rearRight;
+    DcMotor frontRight;
+    DcMotor rearLeft;
 
     @Override
 
     public void runOpMode() {
 
-        topLeftMotor = hardwareMap.get(DcMotor.class, "topLeftMotor");
-        topRightMotor = hardwareMap.get(DcMotor.class, "topRightMotor");
-        bottomLeftMotor = hardwareMap.get(DcMotor.class, "bottomLeftMotor");
-        bottomRightMotor = hardwareMap.get(DcMotor.class, "bottomRightMotor");
+        frontLeft = hardwareMap.get(DcMotor.class, "frontLeft");
+        rearLeft = hardwareMap.get(DcMotor.class, "topRightMotor");
+        frontRight = hardwareMap.get(DcMotor.class, "frontRight");
+        rearRight = hardwareMap.get(DcMotor.class, "rearRight");
 
 
 
@@ -53,28 +53,30 @@ public class MockAuton extends LinearOpMode {
         }
     }
     public void moveForward(double power, long time) {
-        topLeftMotor.setPower(power);
-        topRightMotor.setPower(power);
-        bottomLeftMotor.setPower(power);
-        bottomRightMotor.setPower(power);
+        frontLeft.setPower(power);
+        rearLeft.setPower(power);
+        frontRight.setPower(power);
+        rearRight.setPower(power);
         sleep(time);
         stopMotors();
     }
 
     public void stopMotors() {
-        topLeftMotor.setPower(0.0);
-        topRightMotor.setPower(0.0);
-        bottomLeftMotor.setPower(0.0);
-        bottomRightMotor.setPower(0.0);
+        frontLeft.setPower(0.0);
+        rearLeft.setPower(0.0);
+        frontRight.setPower(0.0);
+        rearRight.setPower(0.0);
     }
 
     //For turning, a positive number = right turn
     public void turn(double power, long time) {
-        topLeftMotor.setPower(power);
-        topRightMotor.setPower(power);
-        bottomLeftMotor.setPower(-power);
-        bottomRightMotor.setPower(-power);
+        frontLeft.setPower(power);
+        rearLeft.setPower(power);
+        frontRight.setPower(-power);
+        rearRight.setPower(-power);
         sleep(time);
         stopMotors();
     }
+
+
 }
