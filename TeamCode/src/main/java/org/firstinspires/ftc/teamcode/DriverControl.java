@@ -6,6 +6,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.Helper.DriveTrain;
+import org.firstinspires.ftc.teamcode.Helper.GamePad;
 import org.firstinspires.ftc.teamcode.Helper.Hardware;
 import org.firstinspires.ftc.teamcode.Helper.Spindexer;
 import org.firstinspires.ftc.teamcode.Helper.Shooter;
@@ -13,7 +14,7 @@ import org.firstinspires.ftc.teamcode.Helper.Pusher;
 import org.firstinspires.ftc.teamcode.Helper.Turret;
 
 
-@TeleOp(name = "Driver Control v3.41", group = "Competition")
+@TeleOp(name = "Driver Control v3.45", group = "Competition")
 public class DriverControl extends LinearOpMode {
 
     private DriveTrain drive;
@@ -95,13 +96,13 @@ public class DriverControl extends LinearOpMode {
 
             }*/
             //spindexer
-            if(gamepad2.dpad_left){
+            if(gamepad1.a){
                 spinner.moveZeroPos();
             }
-            if(gamepad2.dpad_down){
+            if(gamepad1.b){
                 spinner.moveToSecond();
             }
-            if(gamepad2.dpad_up){
+            if(gamepad1.x){
                 spinner.moveToThird();
             }
             spinner.Update();
@@ -121,7 +122,7 @@ public class DriverControl extends LinearOpMode {
             lastAState = currentAState;
 
             //pusher
-            if(gamepad2.dpad_right){
+            if(gamepad1.y){
                 push.comboMove();
             }
 
