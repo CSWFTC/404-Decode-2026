@@ -50,6 +50,7 @@ public class VisionClassifier extends OpenCvPipeline {
         detectColor(input, greenMask, "GREEN", new Scalar(0,255,0));
         detectColor(input, purpleMask, "PURPLE", new Scalar(255,0,255));
 
+
         return input;
     }
 

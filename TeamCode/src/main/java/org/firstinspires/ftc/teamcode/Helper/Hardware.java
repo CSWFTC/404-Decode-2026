@@ -1,17 +1,16 @@
 package org.firstinspires.ftc.teamcode.Helper;
 
 import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.hardwareMap;
-
 import androidx.annotation.NonNull;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
-import com.acmerobotics.dashboard.config.Config;
+//import com.acmerobotics.dashboard.config.Config;
 import com.qualcomm.robotcore.hardware.Servo;
 
-@Config
+//@Config
 public class Hardware {
 
     public static DcMotor frontLeft;
@@ -26,7 +25,6 @@ public class Hardware {
     public static WebcamName camera;
 
     public static DcMotor spinnerMotor;
-    public static DcMotor turretMotor;
     public static Servo pushServo;
 
 
@@ -40,7 +38,7 @@ public class Hardware {
 
 
 
-        //intake and outake system
+        //intake and outtake system
         intakeMotor  = map.get(DcMotor.class, "intakeMotor");
         outtakeMotor = map.get(DcMotor.class, "outtakeMotor");
         turretMotor = map.get(DcMotor.class, "turretMotor");

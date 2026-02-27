@@ -3,7 +3,7 @@ import static org.firstinspires.ftc.teamcode.Helper.Hardware.outtakeMotor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
-import static org.firstinspires.ftc.teamcode.Helper.Hardware.shooterServo;
+
 
 import androidx.annotation.NonNull;
 
@@ -65,7 +65,6 @@ public class Shoot {
 
     //shooting angle
     public void setAnglePosition(double newPos){
-        shooterServo.setPosition(newPos);
         targetShooterPosition = newPos;
 
     }

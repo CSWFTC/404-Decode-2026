@@ -32,6 +32,7 @@ public class SimpleAprilTagVision {
             vp.resumeStreaming();
             vp.setProcessorEnabled(processor, true);
             enabled = true;
+
         }
     }
 

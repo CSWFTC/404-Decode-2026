@@ -2,60 +2,54 @@ package org.firstinspires.ftc.teamcode.pedroPathing;
 
 import com.pedropathing.follower.Follower;
 import com.pedropathing.follower.FollowerConstants;
-import com.pedropathing.ftc.FollowerBuilder;
 import com.pedropathing.ftc.drivetrains.MecanumConstants;
+import com.pedropathing.ftc.localization.constants.ThreeWheelConstants;
 import com.pedropathing.ftc.localization.Encoder;
-import com.pedropathing.ftc.localization.constants.TwoWheelConstants;
+import com.pedropathing.ftc.FollowerBuilder;
+import com.pedropathing.paths.Path;
 import com.pedropathing.paths.PathConstraints;
-import com.qualcomm.hardware.rev.RevHubOrientationOnRobot;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 public class Constants {
     //constants
     public static FollowerConstants followerConstants = new FollowerConstants()
         .mass(9.71);
+
+    public static PathConstraints pathConstraints = new PathConstraints(0.99, 100,1,1);
     public static MecanumConstants driveConstants = new MecanumConstants()
             .maxPower(1)
             .rightFrontMotorName("frontRight")
             .rightRearMotorName("rearRight")
             .leftRearMotorName("rearLeft")
             .leftFrontMotorName("frontLeft")
-            .leftFrontMotorDirection(DcMotorSimple.Direction.FORWARD)
+            .leftFrontMotorDirection(DcMotorSimple.Direction.REVERSE)
             .leftRearMotorDirection(DcMotorSimple.Direction.REVERSE)
             .rightFrontMotorDirection(DcMotorSimple.Direction.FORWARD)
-            .rightRearMotorDirection(DcMotorSimple.Direction.REVERSE);
-
-    public static TwoWheelConstants localizerConstants = new TwoWheelConstants()
-            .forwardEncoder_HardwareMapName("frontLeft")
-            .strafeEncoder_HardwareMapName("frontRight")
-            .IMU_HardwareMapName("imu")
-            .IMU_Orientation(
-                    new RevHubOrientationOnRobot(
-                            RevHubOrientationOnRobot.LogoFacingDirection.LEFT,
-                            RevHubOrientationOnRobot.UsbFacingDirection.UP
-                    )
-            )
-            .forwardPodY(8)
-            .strafePodX(6.25)
-            //.strafeEncoderDirection(Encoder.REVERSE) --> when i add this line the strafe encoder changes direction
-            //.forwardEncoderDirection(Encoder.REVERSE) --> when i add this line the forward encoder doesn't change directions and we need it to
-
-            //.forwardTicksToInches(0.002965) // values are wrong since odometery directions need to be recalibrated
-            // .strafeTicksToInches(0.0019918)
-            ;
-
-
-
-    public static PathConstraints pathConstraints = new PathConstraints(0.99, 100, 1, 1);
-
-
+            .rightRearMotorDirection(DcMotorSimple.Direction.FORWARD);
 
     public static Follower createFollower(HardwareMap hardwareMap) {
         return new FollowerBuilder(followerConstants, hardwareMap)
-                .twoWheelLocalizer(localizerConstants)
                 .pathConstraints(pathConstraints)
                 .mecanumDrivetrain(driveConstants)
+                .threeWheelLocalizer(localizerConstants)
                 .build();
     }
+
+
+
+    public static ThreeWheelConstants localizerConstants = new ThreeWheelConstants()
+            .forwardTicksToInches(.001989436789)
+            .strafeTicksToInches(.001989436789)
+            .turnTicksToInches(.001989436789)
+            .leftPodY(8)
+            .rightPodY(-8)
+            .strafePodX(6.25)
+            .leftEncoder_HardwareMapName("frontLeft")
+            .rightEncoder_HardwareMapName("rearRight")
+            .strafeEncoder_HardwareMapName("frontRight")
+            .leftEncoderDirection(Encoder.FORWARD)
+            .rightEncoderDirection(Encoder.FORWARD)
+            .strafeEncoderDirection(Encoder.FORWARD);
+
 }
