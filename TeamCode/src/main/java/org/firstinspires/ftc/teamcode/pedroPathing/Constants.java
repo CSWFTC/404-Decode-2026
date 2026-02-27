@@ -14,7 +14,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 public class Constants {
     //constants
     public static FollowerConstants followerConstants = new FollowerConstants()
-        .mass(9.71);
+            .mass(9.71);
     public static MecanumConstants driveConstants = new MecanumConstants()
             .maxPower(1)
             .rightFrontMotorName("frontRight")
@@ -45,11 +45,7 @@ public class Constants {
             // .strafeTicksToInches(0.0019918)
             ;
 
-
-
     public static PathConstraints pathConstraints = new PathConstraints(0.99, 100, 1, 1);
-
-
 
     public static Follower createFollower(HardwareMap hardwareMap) {
         return new FollowerBuilder(followerConstants, hardwareMap)
