@@ -27,7 +27,7 @@ public class MockAuton extends LinearOpMode {
     public void runOpMode() {
 
         frontLeft = hardwareMap.get(DcMotor.class, "frontLeft");
-        rearLeft = hardwareMap.get(DcMotor.class, "topRightMotor");
+        rearLeft = hardwareMap.get(DcMotor.class, "frontRight");
         frontRight = hardwareMap.get(DcMotor.class, "frontRight");
         rearRight = hardwareMap.get(DcMotor.class, "rearRight");
 

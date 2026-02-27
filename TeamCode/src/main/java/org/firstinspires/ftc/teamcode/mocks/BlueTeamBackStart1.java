@@ -27,9 +27,9 @@ public class BlueTeamBackStart1 extends LinearOpMode {
     public void runOpMode() {
 
         topLeftMotor = hardwareMap.get(DcMotor.class, "topLeftMotor");
-        topRightMotor = hardwareMap.get(DcMotor.class, "topRightMotor");
-        bottomLeftMotor = hardwareMap.get(DcMotor.class, "bottomLeftMotor");
-        bottomRightMotor = hardwareMap.get(DcMotor.class, "bottomRightMotor");
+        topRightMotor = hardwareMap.get(DcMotor.class, "frontRight");
+        bottomLeftMotor = hardwareMap.get(DcMotor.class, "backLeft");
+        bottomRightMotor = hardwareMap.get(DcMotor.class, "backRight");
 
 
 

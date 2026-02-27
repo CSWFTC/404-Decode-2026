@@ -14,22 +14,22 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 //Turn towards goal
 //Shoot
 
-@Autonomous(name = "MockAuton")
+@Autonomous(name = "BlueGoal")
 public class BlueTeamGoalStart1 extends LinearOpMode {
 
-    DcMotor topLeftMotor;
-    DcMotor topRightMotor;
-    DcMotor bottomLeftMotor;
-    DcMotor bottomRightMotor;
+    DcMotor frontLeft;
+    DcMotor frontRight;
+    DcMotor backLeft;
+    DcMotor backRight;
 
     @Override
 
     public void runOpMode() {
 
-        topLeftMotor = hardwareMap.get(DcMotor.class, "topLeftMotor");
-        topRightMotor = hardwareMap.get(DcMotor.class, "topRightMotor");
-        bottomLeftMotor = hardwareMap.get(DcMotor.class, "bottomLeftMotor");
-        bottomRightMotor = hardwareMap.get(DcMotor.class, "bottomRightMotor");
+        frontLeft = hardwareMap.get(DcMotor.class, "topLeftMotor");
+        frontRight = hardwareMap.get(DcMotor.class, "frontRight");
+        backLeft = hardwareMap.get(DcMotor.class, "backLeft");
+        backRight = hardwareMap.get(DcMotor.class, "backRight");
 
 
 
@@ -65,47 +65,47 @@ public class BlueTeamGoalStart1 extends LinearOpMode {
         }
     }
     public void moveForward(double power, long time) {
-        topLeftMotor.setPower(power);
-        topRightMotor.setPower(power);
-        bottomLeftMotor.setPower(power);
-        bottomRightMotor.setPower(power);
+        frontLeft.setPower(power);
+        frontRight.setPower(power);
+        backLeft.setPower(power);
+        backRight.setPower(power);
         sleep(time);
         stopMotors();
     }
 
     public void strafeRight(double power, long time) {
-        topLeftMotor.setPower(power);
-        topRightMotor.setPower(-power);
-        bottomLeftMotor.setPower(-power);
-        bottomRightMotor.setPower(power);
+        frontLeft.setPower(power);
+        frontRight.setPower(-power);
+        backLeft.setPower(-power);
+        backRight.setPower(power);
 
         sleep(time);
         stopMotors();
     }
 
     public void strafeLeft(double power, long time) {
-        topLeftMotor.setPower(-power);
-        topRightMotor.setPower(power);
-        bottomLeftMotor.setPower(power);
-        bottomRightMotor.setPower(-power);
+        frontLeft.setPower(-power);
+        frontRight.setPower(power);
+        backLeft.setPower(power);
+        backRight.setPower(-power);
 
         sleep(time);
         stopMotors();
     }
 
     public void stopMotors() {
-        topLeftMotor.setPower(0.0);
-        topRightMotor.setPower(0.0);
-        bottomLeftMotor.setPower(0.0);
-        bottomRightMotor.setPower(0.0);
+        frontLeft.setPower(0.0);
+        frontRight.setPower(0.0);
+        backLeft.setPower(0.0);
+        backRight.setPower(0.0);
     }
 
     //For turning, a positive number = right turn
     public void turn(double power, long time) {
-        topLeftMotor.setPower(power);
-        topRightMotor.setPower(power);
-        bottomLeftMotor.setPower(-power);
-        bottomRightMotor.setPower(-power);
+        frontLeft.setPower(power);
+        frontRight.setPower(power);
+        backLeft.setPower(-power);
+        backRight.setPower(-power);
         sleep(time);
         stopMotors();
     }
