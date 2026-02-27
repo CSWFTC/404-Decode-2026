@@ -41,7 +41,7 @@ public class DriverControl extends LinearOpMode {
 
         Hardware.init(hardwareMap);
 
-        telemetry.addLine("Driver Control 2-Motor")
+        telemetry.addLine("Driver Control ")
                 .addData("Version", "2");
         telemetry.update();
 
@@ -52,19 +52,18 @@ public class DriverControl extends LinearOpMode {
         push = new Pusher();
         turret = new Turret(Hardware.turretMotor);
 
-
         boolean lastBack = false;
         boolean lastA = false;
         boolean lastB = false;
 
-        //initalization
+        // initialization
         push.moveDown();
 
         waitForStart();
 
         while (opModeIsActive()) {
 
-            //GAMEPAD 1
+            // GAMEPAD 1
             boolean backPressed = gamepad1.back && !lastBack;
             if (backPressed) reversed = !reversed;
             lastBack = gamepad1.back;
@@ -82,21 +81,7 @@ public class DriverControl extends LinearOpMode {
                     reversed
             );
 
-
-            //GAMEPAD 2
-
-            /*
-            boolean currentSState = gamepad2.dpad_left;
-            if(currentSState && !lastSState){
-                spindexerState++;
-                if(spindexerState > 2){ spindexerState = 0;}
-
-                if(spindexerState == 0){ spinner.moveZeroPos();}
-                else if(spindexerState == 1) {spinner.moveToSecond();}
-                else if(spindexerState == 2){spinner.moveToThird();}
-
-            }*/
-            //spindexer
+            // spindexer
             if(gamepad1.a){
                 spinner.moveZeroPos();
             }
@@ -108,7 +93,7 @@ public class DriverControl extends LinearOpMode {
             }
             spinner.Update();
 
-            //outtake
+            // outtake
             boolean currentAState = gamepad2.a;
 
             if(currentAState && !lastAState) {
@@ -116,17 +101,21 @@ public class DriverControl extends LinearOpMode {
             }
             if(outakeOn){
                 outtake.motorPowerMax();
-            }
-            else{
+            } else {
                 outtake.motorPowerZero();
             }
             lastAState = currentAState;
 
-            //pusher
+            // intake
+            double intakePower = gamepad2.right_trigger - gamepad2.left_trigger; // forward - reverse
+            Hardware.intakeMotor.setPower(intakePower);
+
+            // pusher
             if(gamepad1.y){
                 push.comboMove();
             }
 
+            // turret
             turret.update(
                     gamepad2.right_stick_x,
                     gamepad2.left_bumper,
@@ -135,27 +124,25 @@ public class DriverControl extends LinearOpMode {
                     gamepad2.y
             );
 
+            // telemetry
             telemetry.addLine("Drive V1")
                     .addData("Front Left", Hardware.frontLeft.getPower())
                     .addData("Front Right", Hardware.frontRight.getPower())
                     .addData("Back Left", Hardware.backLeft.getPower())
                     .addData("Back Right", Hardware.backRight.getPower());
 
-
             telemetry.addLine("Shooter/Intake")
-                    // .addData("Intake Motor", Hardware.intakeMotor.getPower())
+                    .addData("Intake Motor", Hardware.intakeMotor.getPower())
                     .addData("Outtake Motor", Hardware.outtakeMotor.getPower());
-
 
             telemetry.addLine("Spindexer")
                     .addData("Spin Motor", Hardware.spinnerMotor.getCurrentPosition());
 
             telemetry.addLine("Pusher")
-                            .addData("Push Servo", Hardware.pushServo.getPosition())
-                             .addData("spin position",spindexerState);
+                    .addData("Push Servo", Hardware.pushServo.getPosition())
+                    .addData("Spin Position", spindexerState);
+
             updateTelemetry(telemetry);
-
-
         }
     }
 }
