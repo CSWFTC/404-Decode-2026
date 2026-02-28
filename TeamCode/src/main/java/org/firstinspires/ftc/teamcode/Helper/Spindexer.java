@@ -20,8 +20,8 @@ public class Spindexer {
     public static class Params{
 
         public boolean spinMotorReverse = true;
-        public double secondPos = 445;
-        public double thirdPos = 896;
+        public double secondPos = 490;
+        public double thirdPos = 929;
 
         public double fOut = 210;
         public double sOut = 685;
@@ -66,6 +66,16 @@ public class Spindexer {
         setpoint = targetPosition;
 
     }
+
+    public void increasePos(){
+        setpoint = Hardware.spinnerMotor.getCurrentPosition() + 20;
+    }
+
+   public void decreasePos(){
+        setpoint -= 20;
+   }
+
+
 
     //spin to first slot
     public void moveZeroPos(){

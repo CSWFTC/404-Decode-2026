@@ -26,7 +26,6 @@ public class Hardware {
     public static WebcamName camera;
 
     public static DcMotor spinnerMotor;
-    public static DcMotor turretMotor;
     public static Servo pushServo;
 
 

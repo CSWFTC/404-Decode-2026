@@ -1,9 +1,9 @@
 package org.firstinspires.ftc.teamcode.Helper;
-import static org.firstinspires.ftc.teamcode.Helper.Hardware.outtakeMotor;
+//import static org.firstinspires.ftc.teamcode.Helper.Hardware.outtakeMotor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
-import static org.firstinspires.ftc.teamcode.Helper.Hardware.shooterServo;
+//import static org.firstinspires.ftc.teamcode.Helper.Hardware.shooterServo;
 
 import androidx.annotation.NonNull;
 
@@ -49,7 +49,7 @@ public class Shoot {
     }
 
     public void setShooterSpeed(double speed){
-        outtakeMotor.setPower(speed);
+      //  outtakeMotor.setPower(speed);
         Shoot.PARAMS.shootingspeed = speed;
     }
 
@@ -65,7 +65,7 @@ public class Shoot {
 
     //shooting angle
     public void setAnglePosition(double newPos){
-        shooterServo.setPosition(newPos);
+      //  shooterServo.setPosition(newPos);
         targetShooterPosition = newPos;
 
     }

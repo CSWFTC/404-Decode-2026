@@ -36,7 +36,7 @@ import java.util.List;
  * @version 1.0, 6/26/2025
  */
 @Configurable
-@TeleOp(name = "Tuning v1.82", group = "Pedro Pathing")
+@TeleOp(name = "Tuning v1.92", group = "Pedro Pathing")
 public class Tuning extends SelectableOpMode {
     public static Follower follower;
 
@@ -188,7 +188,7 @@ class ForwardTuner extends OpMode {
 
     @Override
     public void init() {
-        follower.setStartingPose(new Pose(72,72));
+        follower.setStartingPose(new Pose(72,72,0));
         follower.update();
         drawOnlyCurrent();
     }
@@ -339,7 +339,7 @@ class ForwardVelocityTuner extends OpMode {
 
     @Override
     public void init() {
-        follower.setStartingPose(new Pose(72, 72));
+        follower.setStartingPose(new Pose(0, 0));
     }
 
     /** This initializes the drive motors as well as the cache of velocities and the Panels telemetry. */

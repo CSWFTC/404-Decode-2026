@@ -6,11 +6,11 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.teamcode.Helper.GamePad;
-@TeleOp (name = "Test Single Motor", group = "Hardware")
+@TeleOp (name = "Test Single Motor V1.1", group = "Hardware")
 public class SingleMotorTest extends LinearOpMode{
 
     public static class Params {
-        public String motorName = "outtakeMotor";
+        public String motorName = "spinnerMotor";
         public double version = 0.0;
         public Boolean motorForward = false;
         public double motorTestPosition = 0;

@@ -14,7 +14,7 @@ import org.firstinspires.ftc.vision.apriltag.AprilTagProcessor;
 
 @TeleOp(name = "Driver + Vision Control", group = "Competition")
 public class DriverControlWithVision extends LinearOpMode {
-
+/*
     private DriveTrain drive;
     private Shoot shooter;
     private SimpleAprilTagVision vision;
@@ -29,13 +29,12 @@ public class DriverControlWithVision extends LinearOpMode {
     private boolean lastLB = false;
 
     private boolean lastY2 = false;
-
+*/
     @Override
     public void runOpMode() {
 
         Hardware.init(hardwareMap);
-        drive = new DriveTrain();
-        shooter = new Shoot(Hardware.intakeMotor, Hardware.outtakeMotor);
+     /*   drive = new DriveTrain();
         vision = new SimpleAprilTagVision(hardwareMap);
         vision.init();
 
@@ -43,12 +42,12 @@ public class DriverControlWithVision extends LinearOpMode {
         telemetry.update();
 
         waitForStart();
-        telemetry.clear();
+        telemetry.clear();*/
 
         boolean lastB = false;
 
         while (opModeIsActive()) {
-            boolean backPressed = gamepad1.back && !lastBack;
+          /*  boolean backPressed = gamepad1.back && !lastBack;
             if (backPressed) reversed = !reversed;
             lastBack = gamepad1.back;
 
@@ -56,6 +55,7 @@ public class DriverControlWithVision extends LinearOpMode {
             if (gamepad1.dpad_left)  speedMultiplier = 0.75;
             if (gamepad1.dpad_right) speedMultiplier = 0.50;
             if (gamepad1.dpad_up)    speedMultiplier = 1.00;
+            /*
 
             drive.setDriveVectorFromJoystick(
                     gamepad1.left_stick_x * (float) speedMultiplier,
@@ -136,7 +136,7 @@ public class DriverControlWithVision extends LinearOpMode {
             } else {
                 telemetry.addLine("AprilTag").addData("Status", "Disabled");
             }
-
+*/
             telemetry.update();
         }
     }

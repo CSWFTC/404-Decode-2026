@@ -12,9 +12,9 @@ public class Pusher {
 
     public static class Params{
 
-        public double maxPos = 0.09;
+        public double maxPos = 0.087;
         public double minPos = 0.00;
-        public int comboTime = 100;
+        public int comboTime = 150;
     }
     public static Pusher.Params PARAMS = new Pusher.Params();
 
